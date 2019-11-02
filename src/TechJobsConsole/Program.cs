@@ -57,6 +57,7 @@ namespace TechJobsConsole
                     // What is their search term?
                     Console.WriteLine("\nSearch term: ");
                     string searchTerm = Console.ReadLine();
+                    searchTerm = searchTerm.ToLower(); //added to account for case-sensitivity  
 
                     List<Dictionary<string, string>> searchResults;
 

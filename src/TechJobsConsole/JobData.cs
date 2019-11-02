@@ -48,6 +48,7 @@ namespace TechJobsConsole
             foreach (Dictionary<string, string> row in AllJobs)
             {
                 string aValue = row[column];
+                aValue = aValue.ToLower(); //added to account for case-sensitivity
 
                 if (aValue.Contains(value))
                 {
@@ -138,7 +139,7 @@ namespace TechJobsConsole
 
             return rowValues.ToArray();
         }
-        public static List<Dictionary<string, string>> FindByValue(string userinput)
+        public static List<Dictionary<string, string>> FindByValue(string userInput)
         {
             LoadData();
             List<Dictionary<string, string>> jobs = new List<Dictionary<string, string>>();
@@ -147,9 +148,8 @@ namespace TechJobsConsole
             {
                 foreach (string details in job.Keys)
                 {
-                    //string aValue = jobs[userinput];
 
-                    if (job[details].Contains(userinput))
+                    if (job[details.ToLower()].Contains(userInput.ToLower())) //Added To.Lower to account for case-sensitivity
 
                     {
                         jobs.Add(job);
